@@ -2,8 +2,7 @@
 
 .login-sidebar {
   background-image: url(assets/images/background/birds-5.jpg);
-  background-position: 140% 105%;
-  background-size: 80%;
+  background-position: 20% 105%;
   opacity: 0.8;
   /* height: 110vh; */
 }
@@ -18,7 +17,6 @@
 @media (max-width: 900px) {
   .login-sidebar {
     background-position: 98% 170%;
-    background-size: 70%;
     height: 137vh;
   }
 

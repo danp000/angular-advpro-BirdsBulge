@@ -22,6 +22,7 @@ Login register and recover password Page
   background-size: cover;
   background-repeat: repeat;
   background-position-y: 100%;
+  background-size: 99.9%;
   /* 
   background-position-x: 0%;
   background-size: 90%; */
@@ -45,17 +46,43 @@ Login register and recover password Page
 }
 
 
-@media (max-width: 920px) {
-
-  /* .login-register {
-    background-size: 70%;
-    background-position-y: 100%;
-    background-position-x: 0%;
-  } */
- 
-
-  
+@media (max-width: 965px) {
+  .login-register {
+    background-size: 110%;
+   
+  }
 }
+@media (max-width: 875px) {
+  .login-register {
+    background-size: 120%;
+   
+  }
+}
+@media (max-width: 795px) {
+  .login-register {
+    background-size: 130%;
+   
+  }
+}
+@media (max-width: 735px) {
+  .login-register {
+    background-size: 150%;
+   
+  }
+}
+@media (max-width: 637px) {
+  .login-register {
+    background-size: 160%;
+   
+  }
+}
+@media (max-width: 595px) {
+  .login-register {
+    background-size: 175%;
+   
+  }
+}
+
 
 .login-box {
   width: 30%;
