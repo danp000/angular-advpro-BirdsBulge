@@ -1,0 +1,52 @@
+.error-box {
+  height: 100%;
+  position: fixed;
+  background-image: url(../../../assets/images/background/bird-4.jpg);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y:  250px;
+  
+  background-size: 30%;
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+ .error-box {
+  background-position-y: 260px;
+  background-size: 35%;
+ }
+}
+@media (max-width: 970px) {
+ .error-box {
+  background-position-y: 290px;
+  background-size: 35%;
+ }
+}
+@media (max-width: 780px) {
+ .error-box {
+  background-position-y: 310px;
+  background-size: 40%;
+ }
+}
+.error-box .footer {
+  width: 100%;
+  margin-top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.error-body {
+  padding-top: 5px;
+  margin-top: -50px;
+}
+
+h1 {
+  margin-bottom: -14px;
+}
+
+.error-body h1 {
+  font-size: 110px;
+  font-weight: 900;
+  text-shadow: 4px 4px 0 #ffffff, 6px 6px 0 #168065dc;
+  line-height: 210px;
+}

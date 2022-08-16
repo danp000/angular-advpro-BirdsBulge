@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+.login-sidebar {
+  background-image: url(assets/images/background/birds-5.jpg);
+  background-position: 140% 105%;
+  background-size: 80%;
+  opacity: 0.8;
+  /* height: 110vh; */
+}
+
+.faster {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@media (max-width: 900px) {
+  .login-sidebar {
+    background-position: 98% 170%;
+    background-size: 70%;
+    height: 137vh;
+  }
+
+  .card {
+    background-position-y: 170%;
+    background-position-x: 180%;
+    background-size: 60%;
+  }
+}
+@media (max-width: 940px) {
+  .card {
+    background-position-y: 70%;
+    background-position-x: 50%;
+    background-size: 60%;
+  }
+}
