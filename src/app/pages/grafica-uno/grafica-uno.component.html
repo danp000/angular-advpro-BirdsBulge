@@ -1,1 +1,26 @@
-<p>grafica-uno works!</p>
+
+
+<div class="row">
+
+  <div class="col-6">
+    <app-doughnut title="Cost Breakdown"></app-doughnut>
+  </div>
+  
+  <div class="col-6">
+    <app-doughnut title="Data Maanagement" [data]="establishData([84, 43])" [tags]="tagsC1"></app-doughnut>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-6">
+
+    <app-doughnut title="Vendings" [data]="dataC2" [tags]="tagsC2"></app-doughnut>
+  </div>
+
+  <div class="col-6">
+    <app-doughnut title="Resolutions" [data]="dataC4" [tags]="tagsC3"></app-doughnut>
+  </div>
+
+</div>

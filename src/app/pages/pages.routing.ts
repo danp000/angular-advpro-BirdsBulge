@@ -17,9 +17,6 @@ const routes: Routes = [
     { path: 'grafica-uno', component: GraficaUnoComponent },
   
 ] },
-
-
-
   //{ path: 'path/:routeParam', component: MyComponent },
   //{ path: 'staticPath', component: ... },
   //{ path: '**', component: ... },

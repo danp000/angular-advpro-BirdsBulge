@@ -1,1 +1,70 @@
-<p>progress works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <!-- Progressbar 1 -->
+        <div class="col-md-12 p-r-40 m-t-10 m-b-10">
+          <h4 class="card-title">Animated Striped bar</h4>
+
+          <div class="progress m-t-10">
+            <div
+              class="progress-bar bg-warning active progress-bar-striped active"
+              style="height: 14px"
+              [style.width]="getPercent"
+              role="progressbar"
+            ></div>
+          </div>
+
+          <!-- Progressbar 2 -->
+          <div class="card-body">
+            <h4 class="card-title">Default Progress bars</h4>
+
+            <div class="progress m-t-10">
+              <div
+                class="progress-bar bg-info"
+                style="height: 21px"
+                [style.width]="getAvance"
+                role="progressbar"
+              >
+                {{ getAvance }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row card-two">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+
+        <app-incrementador
+
+          (valOutcome)="progreso = $event"
+          [valor]="progreso"
+          [btnClass]="'btn-warning'"
+
+        ></app-incrementador>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+
+        <app-incrementador
+
+          (valOutcome)="avance = $event"
+          [valor]="avance"
+
+        ></app-incrementador>
+      </div>
+    </div>
+  </div>
+</div>
