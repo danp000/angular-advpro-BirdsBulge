@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService, SettingsService } from '../../services';
 
 @Component({
   selector: 'app-side-bar',
@@ -13,7 +14,21 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class SideBarComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit(): void {}
+  menuOpts: any[] = [];
+
+  constructor( private genServ: GeneralService,
+               private sidServ: SettingsService ) {
+
+                this.menuOpts = sidServ.menu;
+               }
+
+  ngOnInit(): void {
+    this.genServ.getThemesLinks;
+    this.genServ.checkTheme();
+  }
+
+  changeTheme( theme: string ) {
+    this.genServ.changeTheme(theme);
+  }
 }
