@@ -18,6 +18,12 @@ export class SettingsService {
         },
         {
           title: 'Grafica Uno', url: 'grafica-uno'
+        },
+        {
+          title: 'Promesas', url: 'promesas'
+        },
+        {
+          title: 'Rxjs', url: 'rxjs'
         }
       ]
     }

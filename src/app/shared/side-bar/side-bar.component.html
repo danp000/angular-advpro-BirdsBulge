@@ -30,10 +30,12 @@
         <li *ngFor="let opt of menuOpts">
           <a
             class="has-arrow waves-effect waves-dark"
-            href="#"
-            aria-expanded="false"
-            ><i [ngClass]="opt.icon"></i
-            ><span class="hide-menu"
+            routerLink="/"
+            aria-expanded="false">
+
+            <i [ngClass]="opt.icon">
+              </i>
+            <span class="hide-menu"
               >{{ opt.title }}
               <span class="label label-rouded label-themecolor pull-right"
                 > {{ opt.submenu.length }} </span
@@ -42,7 +44,12 @@
           >
           <ul aria-expanded="false" class="collapse">
 
-            <li *ngFor="let sub of opt.submenu" ><a [routerLink]="sub.url"> {{ sub.title }} </a></li>
+            <li *ngFor="let sub of opt.submenu" >
+              <a [routerLink]="sub.url"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]=" {exact: true} ">
+                {{ sub.title }} 
+              </a></li>
           
           </ul>
         </li>

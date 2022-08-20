@@ -11,6 +11,8 @@ import { GraficaUnoComponent } from './grafica-uno/grafica-uno.component';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SplashBoardComponent } from './splash-board/splash-board.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,16 @@ import { SplashBoardComponent } from './splash-board/splash-board.component';
     GraficaUnoComponent,
     PagesComponent,
     ProgressComponent,
+    PromesasComponent,
     SplashBoardComponent,
+    RxjsComponent,
   ],
   exports: [
     AccountSettingsComponent,
     GraficaUnoComponent,
     PagesComponent,
     ProgressComponent,
+    PromesasComponent,
     SplashBoardComponent,
   ],
   imports: [
