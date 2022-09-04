@@ -1,6 +1,9 @@
 
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+
+import { AuthGuard } from '../guards/auth.guard';
+
 import { PagesComponent } from './pages.component';
 import { SplashBoardComponent } from './splash-board/splash-board.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -13,8 +16,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 const routes: Routes = [
 
   { path: 'splash',
-   component: PagesComponent, children: [
-    
+   component: PagesComponent,
+   canActivate: [ AuthGuard ],
+   children: [ 
     { path: '', component: SplashBoardComponent, data: { title: 'Splashboard' } },
     { path: 'progress', component: ProgressComponent, data: {title: 'Progress Bar' } },
     { path: 'grafica-uno', component: GraficaUnoComponent, data: {title: 'Graphics #1' } },

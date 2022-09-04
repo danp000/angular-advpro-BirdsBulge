@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneralService, SettingsService } from '../../services';
+import { GeneralService, SettingsService, UsuarioService } from '../../services';
 
 @Component({
   selector: 'app-side-bar',
@@ -18,6 +18,7 @@ export class SideBarComponent implements OnInit {
   menuOpts: any[] = [];
 
   constructor( private genServ: GeneralService,
+               private usuServ: UsuarioService,
                private sidServ: SettingsService ) {
 
                 this.menuOpts = sidServ.menu;
@@ -26,6 +27,10 @@ export class SideBarComponent implements OnInit {
   ngOnInit(): void {
     this.genServ.getThemesLinks;
     this.genServ.checkTheme();
+  }
+
+  logout() {
+    this.usuServ.logOut();
   }
 
   changeTheme( theme: string ) {

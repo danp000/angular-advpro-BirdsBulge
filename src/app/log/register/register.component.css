@@ -35,39 +35,38 @@ Login register and recover password Page
 }
 
 @media (max-width: 940px) {
-
   .login-register {
     background-size: 120%;
-  }
-  
+  } 
 }
-
 @media (max-width: 900px) {
-
   .login-register {
     background-size: 130%;
   }
-  
 }
 @media (max-width: 745px) {
-
   .login-register {
     background-size: 140%;
   }
-  
 }
 @media (max-width: 645px) {
-
   .login-register {
     background-size: 150%;
   }
-  
 }
 
+.col-xs-12 {
+  margin-top: -10px;
+}
+.db {
+  margin-top: -10px;
+  margin-bottom: -20px;
+}
+.btn-rounded {
+  height: 45px;
+}
 
 .card {
- 
- 
   background-image: url(../../../assets/images/background/birds-3.jpg);
   background-repeat: repeat;
   background-position-y: 60%;
@@ -77,15 +76,18 @@ Login register and recover password Page
 }
 
 .card:hover {
-  opacity: 0.95;
+  opacity: 1;
 }
 
-
+.text-danger {
+  background-color: thistle;
+  padding: 4px;
+  font-weight: 500;
+}
 .login-box {
   display: block;
   width: 400px;
   margin: 0 auto;
-
 }
 .login-box .footer {
   width: 100%;
@@ -96,11 +98,9 @@ Login register and recover password Page
   display: block;
   margin-bottom: 30px;
 }
-
 #recoverform {
   display: none;
 }
-
 .login-sidebar {
   padding: 0px;
   margin-top: 0px;

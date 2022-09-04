@@ -42,47 +42,59 @@ Login register and recover password Page
 }
 
 .card:hover {
-  opacity: 0.95;
+  opacity: 1;
 }
 
 
 @media (max-width: 965px) {
   .login-register {
     background-size: 110%;
-   
   }
 }
 @media (max-width: 875px) {
   .login-register {
     background-size: 120%;
-   
   }
 }
 @media (max-width: 795px) {
   .login-register {
     background-size: 130%;
-   
   }
 }
 @media (max-width: 735px) {
   .login-register {
     background-size: 150%;
-   
   }
 }
 @media (max-width: 637px) {
   .login-register {
     background-size: 160%;
-   
   }
 }
 @media (max-width: 595px) {
   .login-register {
     background-size: 175%;
-   
   }
 }
 
+.col-xs-12 {
+  margin-top: -10px;
+}
+.db {
+  margin-top: -10px;
+  margin-bottom: -15px;
+}
+.btn-rounded {
+  height: 45px;
+}
+.btn-googleplus {
+  height: 30px;
+}
+.text-danger {
+  background-color: thistle;
+  padding: 4px;
+  font-weight: 500;
+}
 
 .login-box {
   width: 30%;
@@ -97,11 +109,9 @@ Login register and recover password Page
   display: block;
   margin-bottom: 30px;
 }
-
 #recoverform {
   display: none;
 }
-
 .login-sidebar {
   padding: 0px;
   margin-top: 0px;

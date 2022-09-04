@@ -21,19 +21,15 @@
 @media (max-width: 900px) {
   .login-sidebar {
     background-position: 98% 170%;
-    height: 137vh;
   }
-
   .card {
     background-position-y: 170%;
     background-position-x: 180%;
-    background-size: 60%;
   }
 }
 @media (max-width: 940px) {
   .card {
     background-position-y: 70%;
     background-position-x: 50%;
-    background-size: 60%;
   }
 }
