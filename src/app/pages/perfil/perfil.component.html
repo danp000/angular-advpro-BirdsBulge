@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Mi Perfil de usuario</h4>
+        <h6 class="card-subtitle">Ajustes</h6>
+
+        <form class="form-horizontal p-t-20"
+              autocomplete="off"
+              [formGroup]="perfilForm"
+              (ngSubmit)="actualizarPerfil()">
+          <div class="form-group row">
+            <label for="uname" class="col-sm-3 control-label">Username</label>
+            <div class="col-sm-9">
+              <div class="input-group">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  class="form-control"
+                  formControlName="nombre"
+                  id="uname"
+                  placeholder="Username"
+                />
+                <div class="input-group-addon"><i class="ti-user"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email2" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  formControlName="email"
+                  id="exampleInputEmail1"
+                  placeholder="Enter email"
+                  [readonly]="usuario.google"
+                />
+                <div class="input-group-addon"><i class="ti-email"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="web1" class="col-sm-3 control-label">Role</label>
+            <div class="col-sm-9">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="role"
+                  id="web1"
+                  placeholder="Enter Your Role"
+                />
+                <div class="input-group-addon"><i class="ti-id-badge"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="pass3" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+              <div class="input-group">
+                <input
+                  type="password"
+                  autocomplete="off"
+                  formControlName="password"
+                  class="form-control"
+                  id="pas"
+                  placeholder="Enter new pwd"
+                  [readonly]="usuario.google"
+                />
+                <div class="input-group-addon"><i class="ti-lock"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row m-b-0">
+            <div class="offset-sm-3 col-sm-9">
+              <button
+                type="submit"
+                class="btn btn-success waves-effect waves-light submit-btn"
+              >
+                Submit changes  <i class="ti-save"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Avatar</h4>
+        <h6 class="card-subtitle">Imagen del usuario</h6>
+
+        <img *ngIf="!viewImg" [src]="usuario.imagenUrl">
+        <img *ngIf="viewImg" [src]="viewImg">
+        <input type="file" class="file-in" 
+              (change)="cambiarImgPerfil( $event )">
+
+        <br>
+        <br>
+
+        <button
+          type="button"
+          class="btn btn-success waves-effect waves-light"
+          [disabled]="!archivoImg"
+          (click)="subirImagen()"
+        >
+        Upload image   <i class="ti-save-alt"></i>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

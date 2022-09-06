@@ -1,0 +1,29 @@
+.file-in {
+  background-color: paleturquoise;
+  border: 1.5px dotted rgba(49, 224, 87, 0.945);
+}
+.card-subtitle {
+  color: darkslateblue;
+  font-weight: 400;
+}
+
+i {
+  margin-left: 4px;
+}
+
+img {
+    display: flex; 
+    max-width: 70%; 
+    max-height: 500px;
+    border: 14px groove rgba(63, 248, 109, 0.308);
+    margin-left: 19%;
+    margin-bottom: 15px;
+ }
+
+.waves-light {
+  width: 40%;
+}
+
+.submit-btn {
+  width: 60%;
+}

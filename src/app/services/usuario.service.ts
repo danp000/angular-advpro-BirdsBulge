@@ -6,60 +6,63 @@ import { LoginForm } from '../interfaces/login.interface';
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/usuario.model';
 
 const base_url = environment.base_url;
-declare const google: any;
-declare const gapi: any;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  public auth2: any;
-  public gapi: any;
+  public usuario!: Usuario;
+  public patronEmail: string = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
 
   constructor( private http: HttpClient,
                private ngZone: NgZone,
-               private router: Router ) { 
-    }
+               private router: Router ) {}
 
-  googleInit() {
-    // this.gapi.load('auth2', () => {
-    //   this.auth2 = this.gapi.auth2.init({
-    //     cliend_id: '9185816974-4dll97ful1ldtlhktlhve5bbtng840qf.apps.googleusercontent.com',
-    //     cookiepolicy: 'single_host_origin'
-    //   });
-    // });
-  }             
+  get token(): string {
+    return localStorage.getItem('token') || '';
+  }  
+  get uid(): string {
+    return this.usuario.uid || '';
+  }         
 
   logOut() {
     localStorage.removeItem('token');
-    // this.auth2.signOut().then( () => {
-    //   this.router.navigateByUrl('/login');
-    // });
-    google.accounts.id.revoke( 'stupineancristiandaniel@gmail.com', () => {
-      this.ngZone.run(() => {
-        this.router.navigateByUrl('/login');
-      });
-    } );
+    this.ngZone.run(() => {
+      this.router.navigateByUrl('/login');
+    });
   }
 
   validarToken(): Observable<boolean> {
-    const token = localStorage.getItem('token') || '';
 
     return this.http.get(`${ base_url }/login/renovar`, {
-      headers: { 'q-token': token }
-    }).pipe( tap( (resp: any) => {
-              localStorage.setItem('token', resp.token); 
-      }), map( resp => true ),
-          catchError( err => of(false) ));
+        headers: { 'q-token': this.token }
+    }).pipe( map( (resp: any) => {
+           const { email, google, nombre, role, img, uid } = 
+                resp.usuario;
+           this.usuario = new Usuario
+                ( nombre, email, '', role, img, google, uid );
+
+           localStorage.setItem('token', resp.token); 
+           return true;
+      }), catchError( () => of(false) ));
   }
 
   crearUsuario( formData: RegisterForm ) {
     return this.http.post(`${ base_url }/usuarios`, formData )
               .pipe( tap( (resp: any) => {
                 localStorage.setItem('token', resp.token); }));
+  }
+
+  actualizarPerfil( data: { email?: string, nombre?: string,
+                     role?: string, password?: string } ) {
+                   
+    return this.http.put( `${ base_url }/usuarios/${ this.uid }`, data, {
+           headers: { 'q-token': this.token }
+    });
   }
 
   login( formData: LoginForm ) {

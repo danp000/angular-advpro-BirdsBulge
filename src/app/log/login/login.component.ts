@@ -27,9 +27,9 @@ export class LoginComponent implements AfterViewInit {
 
   public loginForm: FormGroup = this.formBuilder.group({
     email: [ localStorage.getItem( 'email' || '' ), 
-          [ Validators.required, Validators.email ] ],
-    password: ['', [ Validators.required, Validators.minLength(4) ] ],
-    remember: false
+          [ Validators.required, Validators.pattern(this.usuServ.patronEmail) ] ],
+    password: ['123456', [ Validators.required, Validators.minLength(4) ] ],
+    remember: true
   });
 
   constructor( private router: Router,
@@ -73,7 +73,6 @@ export class LoginComponent implements AfterViewInit {
             } 
       });
   }
-
 
   registerLink() {
     this.router.navigateByUrl('/regis');

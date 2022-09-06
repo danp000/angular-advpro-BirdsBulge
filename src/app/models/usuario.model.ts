@@ -1,3 +1,6 @@
+import { environment } from '../../environments/environment';
+
+const api_url = environment.base_url;
 
 export class Usuario {
 
@@ -10,6 +13,17 @@ export class Usuario {
     public google?: boolean, 
     public uid?: string
   ) {}
+
+  get imagenUrl() {
+    if ( this.img?.includes('https') ) {
+      return this.img;
+    }
+
+    if ( this.img ) {
+      return `${ api_url }/subir/usuarios/${ this.img }`;
+    }
+    return `${ api_url }/subir/usuarios/no-image`;
+  }
 
 }
 

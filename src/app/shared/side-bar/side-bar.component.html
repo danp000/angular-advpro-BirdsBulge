@@ -12,13 +12,13 @@
             href="#"
             aria-expanded="false"
             ><img
-              src="./assets/images/users/buho.png"
+              [src]="usuario.imagenUrl"
               alt="user"
               class="img-circle"
-            /><span class="hide-menu">Steave Jobs </span></a
+            /><span class="hide-menu"> {{ usuario.nombre }} </span></a
           >
           <ul aria-expanded="false" class="collapse">
-            <li><a routerLink="/splash">My Profile </a></li>
+            <li><a routerLinkActive="active" routerLink="./perfil">My Profile </a></li>
             <li><a href="javascript:void()">My Balance</a></li>
             <li><a href="javascript:void()">Inbox</a></li>
             <li><a a routerLink="account-settings">Account Setting</a></li>
