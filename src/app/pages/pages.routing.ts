@@ -13,6 +13,11 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { SplashBoardComponent } from './splash-board/splash-board.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 
+// Matenimientos
+import { UsuariosComponent } from './manteniemiento/usuarios/usuarios.component';
+import { HospitalesComponent } from './manteniemiento/hospitales/hospitales.component';
+import { MedicosComponent } from './manteniemiento/medicos/medicos.component';
+
 
 const routes: Routes = [
 
@@ -27,6 +32,11 @@ const routes: Routes = [
     { path: 'promesas', component: PromesasComponent, data: {title: 'Promises' } },
     { path: 'rxjs', component: RxjsComponent, data: {title: 'Rxjs' } },
     { path: 'perfil', component: PerfilComponent, data: {title: 'Mi Perfil' } },
+
+    // Mantenimientos
+    { path: 'usuarios', component: UsuariosComponent, data: {title: 'Usuarios' } },
+    { path: 'hospitales', component: HospitalesComponent, data: {title: 'Hospitales' } },
+    { path: 'medicos', component: MedicosComponent, data: {title: 'Médicos' } },
   
 ] },
 

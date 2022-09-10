@@ -14,6 +14,10 @@ import { SplashBoardComponent } from './splash-board/splash-board.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './manteniemiento/usuarios/usuarios.component';
+import { HospitalesComponent } from './manteniemiento/hospitales/hospitales.component';
+import { MedicosComponent } from './manteniemiento/medicos/medicos.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +29,9 @@ import { PerfilComponent } from './perfil/perfil.component';
     SplashBoardComponent,
     RxjsComponent,
     PerfilComponent,
+    UsuariosComponent,
+    HospitalesComponent,
+    MedicosComponent,
   ],
   exports: [
     AccountSettingsComponent,

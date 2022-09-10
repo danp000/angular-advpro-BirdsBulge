@@ -33,3 +33,30 @@
     background-position-x: 50%;
   }
 }
+
+.oculto {
+  display: none;
+}
+.btn:disabled {
+  cursor: unset;
+}
+
+.fondo-modal-imagen {
+  background-color: rgba(77, 151, 117, 0.37);
+  left: 0px;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 9999;
+}
+.modal-imagen {
+  margin-top: -20px;
+}
+ins {
+  position: absolute;
+  margin-top: 10px;
+  left: 3%;
+  z-index: 99;
+  background-color: rgba(240, 255, 255, 0.493);
+}

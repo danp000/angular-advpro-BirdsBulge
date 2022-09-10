@@ -13,15 +13,13 @@ export class PerfilComponent implements OnInit {
 
   public perfilForm!: FormGroup;
   public usuario!: Usuario;
-  public archivoImg!: File;
-  public viewImg!: string | ArrayBuffer;
 
   constructor( private fb: FormBuilder,
                 private usuServ: UsuarioService,
-                private uplServ: ArchiveUploadService,
+                public uplServ: ArchiveUploadService,
                  ) {
      this.usuario = usuServ.usuario;
-    }
+  }
 
   ngOnInit(): void {
 
@@ -53,7 +51,7 @@ export class PerfilComponent implements OnInit {
           const { nombre, email } = this.perfilForm.value;
           this.usuario.nombre = nombre;
           this.usuario.email = email;
-
+          
           Swal.fire('```Guardado```', '^^Los cambios han sido aplicados con éxito^^!', 'success');
         }, error: err => {
           console.log(err);
@@ -69,39 +67,10 @@ export class PerfilComponent implements OnInit {
   }
 
   cambiarImgPerfil( event: any ) {
-    this.archivoImg = event.target.files[0];
-      
-    if ( !this.archivoImg ) {
-      this.viewImg = '';
-      return;
-    }
-    const reader = new FileReader();
-    reader.readAsDataURL( this.archivoImg );
-    reader.onloadend = () => {
-      this.viewImg = reader.result!;
-    }
+    this.uplServ.cambiarImgPreview(event);
   }
 
   subirImagen() {
-    this.uplServ.cambiarImgUsuario( this.archivoImg, 'usuarios', 
-      (this.usuario.uid!) ).then(
-        (img) => { 
-        // console.log(img);
-        if ( !img.nombreArch && img.ok === false ) {
-          Swal.fire({ title:'¡Aviso!',
-            icon: 'warning',
-            width: 394,
-            heightAuto: false,
-            text: img.msg,
-            timer: 3500
-        });
-          return;
-        }
-        this.usuario.img = img;
-        Swal.fire('^Guardado^', 'Imagen de perfil cambiada con éxito', 'success');
-    }).catch( er => {
-        console.log(er);
-        Swal.fire('¡Error!', 'Sucedió un error imprevisto, intenta otra imagen..', 'error');
-    });
+    this.uplServ.subirImagen( 'usuarios' );
   }
 }

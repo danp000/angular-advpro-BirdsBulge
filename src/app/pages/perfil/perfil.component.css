@@ -15,7 +15,7 @@ img {
     display: flex; 
     max-width: 70%; 
     max-height: 500px;
-    border: 14px groove rgba(63, 248, 109, 0.308);
+    border: 14px groove rgba(89, 248, 208, 0.308);
     margin-left: 19%;
     margin-bottom: 15px;
  }

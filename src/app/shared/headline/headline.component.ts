@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../models/usuario.model';
 
@@ -34,6 +34,7 @@ export class HeadlineComponent {
 
   constructor( private usuServ: UsuarioService ) {
     this.usuario = usuServ.usuario;
+    // console.log(this.usuario);
   }
 
   logout() {

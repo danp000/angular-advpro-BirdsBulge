@@ -1,0 +1,44 @@
+
+<div class="fondo-modal-imagen"
+      [class.oculto]="modServ.ocultarModal || uplServ.imgNueva">
+  <div class="modal fade show modal-imagen" id="exampleModal" 
+        tabindex="-1" role="dialog" 
+        aria-labelledby="exampleModalLabel1" 
+        style="display: block;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel1">Subir imagen</h4>
+                <button type="button" class="close"
+                (click)="cerrarModal()"
+                 data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <!-- <h4>Seleccione una imagen</h4> -->
+
+                <label for="files"
+                         placeholder="Selectar" class="btn btn-file">
+                    <i class="fa fa-photo fa-3x m-r-10">
+                        </i> Selectar una imagen </label>
+                <input id="files" style="visibility:hidden;"
+                        type="file"
+                        title="Selectar"
+                        (change)="cambiarImgPerfil( $event )">
+                <img *ngIf="uplServ.viewImg" class="text-align-center" 
+                        [src]="uplServ.viewImg">
+                <img *ngIf="!uplServ.viewImg" class="text-align-center" 
+                        [src]="modServ.img">
+            </div>
+            <i *ngIf="uplServ.loadingImg" 
+                class="fa fa-spin  fa-circle-o-notch fa-3x loading" aria-hidden="true"></i>
+            <div class="modal-footer">
+                <button (click)="cerrarModal()" type="button" 
+                        class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button [disabled]="!uplServ.viewImg" 
+                        (click)="subirImagen()" type="button" class="btn btn-primary">Actualizar foto</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+

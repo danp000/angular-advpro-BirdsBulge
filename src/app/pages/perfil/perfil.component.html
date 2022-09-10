@@ -95,8 +95,8 @@
         <h4 class="card-title">Avatar</h4>
         <h6 class="card-subtitle">Imagen del usuario</h6>
 
-        <img *ngIf="!viewImg" [src]="usuario.imagenUrl">
-        <img *ngIf="viewImg" [src]="viewImg">
+        <img *ngIf="!uplServ.viewImg" [src]="usuario.imagenUrl">
+        <img *ngIf="uplServ.viewImg && uplServ.archivoImg" [src]="uplServ.viewImg">
         <input type="file" class="file-in" 
               (change)="cambiarImgPerfil( $event )">
 
@@ -106,7 +106,7 @@
         <button
           type="button"
           class="btn btn-success waves-effect waves-light"
-          [disabled]="!archivoImg"
+          [disabled]="!uplServ.archivoImg"
           (click)="subirImagen()"
         >
         Upload image   <i class="ti-save-alt"></i>

@@ -1,0 +1,133 @@
+<div class="row inp-bus animated slideInDown fast">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar un usuario"
+          (keyup)="buscarUsuario( terminoBusqueda.value )"
+          #terminoBusqueda
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!usuarios" class="row animated jello fast">
+  <div class="col-12">
+    <div class="alert alert-info text-center" role="alert">
+      <h4 class="alert-heading">Cargando</h4>
+      <i class="fa fa-spin fa-spinner fa-3x" aria-hidden="true"></i>
+      <hr />
+      <p class="mb-0">Por favor espere que se cargue la información</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="usuarios" class="row animated zoomIn fast">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 *ngIf="!buscando" class="card-title">
+            Usuarios desde {{ desde }} a {{ retornaTotalEnPagina() }}
+        </h4>
+        <h4 *ngIf="buscando" class="card-title">
+            {{ retornaTotalEnPagina() }} 
+            {{ usuarios.length | i18nPlural: usuariosMapa }}.
+        </h4>
+        <h6 class="card-subtitle">
+          Usuarios registrados en la applicación
+        </h6>
+        <!-- <div class="row animated jello fast" [hidden]="!buscando || !cargando">
+          <div class="col-12">
+            <div class="loading-message text-center">
+              <h4 class="alert-heading">Cargando</h4>
+              <i class="fa fa-spin fa-spinner fa-2x" aria-hidden="true"></i>
+              <hr />
+              <p class="mb-0">Por favor espere que se cargue la siguiente pagina</p>
+            </div>
+          </div>
+        </div> -->
+        <div class="table-responsive" >
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th class="w100">Avatar</th>
+                <th>Correo</th>
+                <th>Nombre</th>
+                <th class="w101">Role</th>
+                <th class="w100">Auth</th>
+                <th class="text-nowrap w100">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of usuarios">
+                <td (click)="abrirModal( usuario )"
+                    class="selector image" >
+                  <img [src]="usuario.imagenUrl" class="w102" title="Cmbiar foto" /> <ins 
+                        *ngIf="userId === usuario.uid" 
+                         class="fa fa-image fa-2x text-inverse m-r-10"></ins>
+                </td>
+                <td >{{ usuario.email }}</td>
+                <td>{{ usuario.nombre }}</td>
+
+                <td *ngIf="userId === usuario.uid">
+                  <select class="form-control selector"
+                          [(ngModel)]="usuario.role"
+                          (change)="actualizarRole( usuario )">
+                    <option value="USER_ROLE">Usuario</option>
+                    <option value="ADMIN_ROLE">Adminis</option>
+                  </select>
+                </td>
+
+                <td *ngIf="userId !== usuario.uid">
+                  <i *ngIf="usuario.role === 'USER_ROLE'"
+                      class="fa fa-id-badge"></i>
+                  <i *ngIf="usuario.role === 'ADMIN_ROLE'"
+                      class="fa fa-vcard-o"></i>
+                    {{ usuario.role === 'USER_ROLE' ? 'Usuario' : 'Adminis' }}
+                </td>
+
+                <td *ngIf="usuario.google"><span
+                     class="label label-success">Google</span>
+                </td>
+                <td *ngIf="!usuario.google"><span 
+                     class="label label-info">Manual</span>
+                </td>
+
+                <td class="text-nowrap">
+                  <a
+                    (click)="swichActions( usuario )"
+                    class="selector"
+                    data-toggle="tooltip" data-original-title="Editar">
+                    <i *ngIf="userId !== usuario.uid" 
+                        class="fa fa-pencil text-inverse m-r-10"></i>
+                    <i *ngIf="userId === usuario.uid" 
+                        class="fa fa-refresh text-inverse m-r-10"></i>
+                  </a>
+                  
+                  <a (click)="borrarUsuario( usuario )" 
+                      class="selector" data-toggle="tooltip" data-original-title="Borrar">
+                    <i class="fa fa-close text-danger"></i>
+                  </a>
+                </td>
+
+              </tr>
+              <tr class="text-center" *ngIf="alertFin">
+                <td class="fin-lista" colspan="6">*___________________________ ---- Final de la lista ---- __________________________*</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h5 *ngIf="!buscando" class="card-title">
+             Total usuarios registrados: {{ totalUsuarios }}</h5>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button (click)="cambiarPagina(-5)" class="btn btn-warning me-md-2" type="button">Anteriores</button>        
+            <button (click)="cambiarPagina(5)" class="btn btn-danger me-mr-3" type="button">Siguientes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
